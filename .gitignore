@@ -1,0 +1,28 @@
+# Android / Gradle
+.gradle/
+build/
+**/build/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# APK and signing artifacts
+*.apk
+*.aab
+*.apks
+*.keystore
+*.jks
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
