@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
     private static final String HOME_URL = "file:///android_asset/index.html";
     private WebView webView;
     private Button btnClose;
+    private Button btnRefresh;
     private ValueCallback<Uri[]> fileCallback;
     private static final int FILE_REQUEST = 1001;
 
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         webView = findViewById(R.id.webview);
         btnClose = findViewById(R.id.btn_close);
+        btnRefresh = findViewById(R.id.btn_refresh);
 
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -43,8 +45,10 @@ public class MainActivity extends Activity {
                 super.onPageFinished(view, url);
                 if (HOME_URL.equals(url)) {
                     btnClose.setVisibility(View.GONE);
+                    btnRefresh.setVisibility(View.GONE);
                 } else {
                     btnClose.setVisibility(View.VISIBLE);
+                    btnRefresh.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -58,6 +62,12 @@ public class MainActivity extends Activity {
                 intent.setType("image/*");
                 startActivityForResult(intent, FILE_REQUEST);
                 return true;
+            }
+        });
+
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                webView.reload();
             }
         });
 

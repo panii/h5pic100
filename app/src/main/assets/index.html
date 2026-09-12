@@ -20,5 +20,5 @@ canvas.addEventListener('dblclick',toggle);canvas.addEventListener('touchend',e=
 function renderLinks(urls){linksBox.innerHTML='';if(!urls||!urls.length){linksBox.classList.remove('show');return;}urls.forEach(u=>{const a=document.createElement('a');a.href=u;a.textContent=u;linksBox.appendChild(a);});linksBox.classList.add('show');}
 function clearLinks(){renderLinks([]);}
 async function loadLinks(){try{const res=await fetch(TXT_URL,{method:'GET'});if(!res.ok)throw new Error('HTTP '+res.status);const text=await res.text();renderLinks(text.split(/\r?\n/).map(s=>s.trim()).filter(s=>s.length>0));}catch(err){alert('error: '+err.message);}}
-loadLinks();
+loadLinks();//renderLinks("http://192.168.31.114:8081/".split(/\r?\n/).map(s=>s.trim()).filter(s=>s.length>0));
 </script></body></html>

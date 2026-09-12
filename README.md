@@ -36,6 +36,10 @@ Prerequisites:
 - Android SDK Platform 37 (`android.jar`)
 - A signing keystore (`app/build/debug.keystore`; alias `androiddebugkey`, password `android`)
 
+Quick build: double-click `build.bat` in the repository root. It locates the JDK and Android SDK automatically (via `JAVA_HOME` / `ANDROID_HOME`), picks the newest installed build-tools and platform, generates the debug keystore if missing, and writes the signed APK to `app/build/H5Pic100.apk`.
+
+Manual build (equivalent steps):
+
 Run these commands from the repository root (Git Bash on Windows; adjust the SDK paths if needed):
 
 ```bash
